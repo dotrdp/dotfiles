@@ -10,29 +10,20 @@
       ./hardware-configuration.nix
       ./apple-silicon-support
     ];
+  #HARDWARE  
   hardware.bluetooth.enable = true;
     
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-
-  networking.hostName = "rdp"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  
+  # NETWORK STUFF
+  networking.hostName = "rdp";
   networking.wireless.iwd = {
   enable = true;
   settings.General.EnableNetworkConfiguration = true;
   };
-
-  # Set your time zone.
   time.timeZone = "America/Mexico_City";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
@@ -40,21 +31,20 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
+  # DE
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   
+  # DISPLAYLINK DRIVER
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ]; 
   services.xserver.displayManager.sessionCommands = ''
     ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
   '';
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
-  # Configure keymap in X11
+  # KEYBOARD LAYOUT
   services.xserver.xkb.layout = "es";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -79,14 +69,12 @@
      ];
    };
   nixpkgs.config.allowUnfree = true;
-
+  
+  # PROGRAMS
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
- 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
+  # PACKAGES
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      kitty
      git
@@ -99,10 +87,9 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
   # List services that you want to enable:
   programs.ssh.startAgent = true;
-  # Enable the OpenSSH daemon.
+  # OPENSSH DAEMON
   services.openssh.enable = true;
 
   # Open ports in the firewall.
