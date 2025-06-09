@@ -16,7 +16,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-  
+  #FLAKE AND HOMEMANAGER
+  nix.settings.experimental-features = [ "flakes" "nix-command" ];
   # NETWORK STUFF
   networking.hostName = "rdp";
   networking.wireless.iwd = {
@@ -78,6 +79,7 @@
      wget
      kitty
      git
+     spyder
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
