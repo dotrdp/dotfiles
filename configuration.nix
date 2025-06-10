@@ -12,7 +12,8 @@
     ];
   #HARDWARE  
   hardware.bluetooth.enable = true;
-    
+  hardware.asahi.useExperimentalGPUDriver = true;    
+  hardware.asahi.setupAsahiSound = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -44,9 +45,8 @@
   '';
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
-  # KEYBOARD LAYOUT
   services.xserver.xkb.layout = "es";
-  # Enable CUPS to print documents.
+
   services.printing.enable = true;
 
   # Enable sound.
@@ -80,6 +80,21 @@
      kitty
      git
      spyder
+
+    (vscode-with-extensions.override {
+    vscodeExtensions = with vscode-extensions; [
+      bbenoist.nix
+      nonylene.dark-molokai-theme
+      
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "remote-ssh-edit";
+        publisher = "ms-vscode-remote";
+        version = "0.47.2";
+        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+      }
+    ]; 
+  })
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
