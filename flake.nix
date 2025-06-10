@@ -1,21 +1,17 @@
 {
-  description = "Nixos config flake";
+  description = "rd dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    pkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.rdp = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+  outputs = { self, pkgs, ... } @inputs: {
+    nixosConfigurations.rd = pkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        # inputs.home-manager.nixosModules.default
       ];
     };
   };
