@@ -14,6 +14,7 @@
   hardware.bluetooth.enable = true;
   hardware.asahi.useExperimentalGPUDriver = true;    
   hardware.asahi.setupAsahiSound = true;
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -102,8 +103,6 @@
   programs.mtr.enable = true;
   programs.ssh.startAgent = true;
   services.openssh.enable = true;
-
-  system.copySystemConfiguration = true;
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
