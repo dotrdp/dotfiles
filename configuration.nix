@@ -49,7 +49,7 @@
   services.xserver.xkb.layout = "es";
 
   services.printing.enable = true;
-
+#AM WORKING ON IT OK?
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
