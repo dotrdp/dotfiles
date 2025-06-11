@@ -9,6 +9,7 @@
     [ 
       ./hardware-configuration.nix
       ./apple-silicon-support
+
     ];
   #HARDWARE  
   hardware.bluetooth.enable = true;
