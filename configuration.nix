@@ -66,16 +66,31 @@
   
   # PROGRAMS
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+  enable = true;
+  xwayland.enable = true;
+};
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   # PACKAGES
+
   environment.systemPackages = with pkgs; [
-     wget
-     kitty
-     git
-     spyder
-     rose-pine-cursor
+     pkgs.wget
+     pkgs.kitty
+     pkgs.git
+     pkgs.waybar
+     pkgs.eww
+     pkgs.mako
+     pkgs.libnotify
+     hyprpaper
+     swaybg
+     wpaperd
+     mpvpaper
+     swww
+     rofi-wayland
      #VSCODE STUFF
-    (vscode-with-extensions.override {
+    (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with vscode-extensions; [
       jnoortheen.nix-ide
       nonylene.dark-molokai-theme

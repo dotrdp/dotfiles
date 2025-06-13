@@ -4,7 +4,7 @@
   inputs = {
     pkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
- 
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = { self, pkgs, home-manager, ... } @inputs: {
