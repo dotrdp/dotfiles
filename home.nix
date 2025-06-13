@@ -44,6 +44,11 @@
   };
   
 
+  qt = {
+    enable = true;
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
+  };
 
 
   home.stateVersion = "25.11";
