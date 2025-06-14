@@ -22,7 +22,7 @@
   #FLAKE
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
   # NETWORK STUFF
-  networking.hostName = "rdp";
+  networking.hostName = "nixos";
   networking.wireless.iwd = {
   enable = true;
   settings.General.EnableNetworkConfiguration = true;
@@ -74,6 +74,10 @@
      git
      spyder
      rose-pine-cursor
+     gnomeExtensions.just-perfection
+     gnomeExtensions.pop-shell
+     gnome-tweaks # For managing extensions
+     gnomeExtensions.open-bar
      #VSCODE STUFF
     (vscode-with-extensions.override {
     vscodeExtensions = with vscode-extensions; [

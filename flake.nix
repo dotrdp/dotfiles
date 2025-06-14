@@ -8,7 +8,7 @@
   };
 
   outputs = { self, pkgs, home-manager, ... } @inputs: {
-    nixosConfigurations.rdp = pkgs.lib.nixosSystem {
+    nixosConfigurations.nixos = pkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit inputs; };
       modules = [
