@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{inputs, config, lib, pkgs, ... }:
 
 {
   imports =
@@ -68,19 +68,26 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   # PACKAGES
-  environment.systemPackages = with pkgs; [
-     wget
-     kitty
-     git
-     spyder
-     rose-pine-cursor
-     gnomeExtensions.just-perfection
-     gnomeExtensions.pop-shell
-     gnome-tweaks # For managing extensions
-     gnomeExtensions.open-bar
+  environment.systemPackages = [
+     pkgs.wget
+     pkgs.kitty
+     pkgs.git
+     pkgs.spyder
+     pkgs.gnomeExtensions.just-perfection
+     pkgs.gnomeExtensions.pop-shell
+     pkgs.gnome-tweaks # For managing extensions
+     pkgs.gnomeExtensions.open-bar
+     pkgs.gnomeExtensions.logo-menu
+     pkgs.gnomeExtensions.media-controls
+     pkgs.gnomeExtensions.rounded-window-corners-reborn
+     pkgs.gnomeExtensions.compact-top-bar
+     pkgs.gnomeExtensions.weather-oclock
+     pkgs.gnomeExtensions.unite
+     pkgs.gnome-weather
+     inputs.zen-browser.packages.${pkgs.system}.default
      #VSCODE STUFF
-    (vscode-with-extensions.override {
-    vscodeExtensions = with vscode-extensions; [
+    (pkgs.vscode-with-extensions.override {
+    vscodeExtensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       nonylene.dark-molokai-theme
       
