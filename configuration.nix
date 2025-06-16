@@ -9,7 +9,7 @@
     [ 
       ./hardware-configuration.nix
       ./apple-silicon-support
-
+     
     ];
   #HARDWARE  
   hardware.bluetooth.enable = true;
@@ -32,9 +32,20 @@
   
 
   # DE
-  services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
+
+    # Enable the XFCE Desktop Environment.
+    displayManager.sddm = {
+      enable = true;
+    };
+    desktopManager = {
+      xterm.enable = false;
+    };
+  };
+  programs.niri.enable = true;
+
   
   # DISPLAYLINK DRIVER
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ]; 
@@ -70,20 +81,21 @@
   # PACKAGES
   environment.systemPackages = [
      pkgs.wget
-     pkgs.foot
+     pkgs.kitty
      pkgs.git
      pkgs.spyder
-     pkgs.gnomeExtensions.just-perfection
-     pkgs.gnomeExtensions.pop-shell
-     pkgs.gnome-tweaks # For managing extensions
-     pkgs.gnomeExtensions.open-bar
-     pkgs.gnomeExtensions.logo-menu
-     pkgs.gnomeExtensions.media-controls
-     pkgs.gnomeExtensions.rounded-window-corners-reborn
-     pkgs.gnomeExtensions.compact-top-bar
-     pkgs.gnomeExtensions.weather-oclock
-     pkgs.gnomeExtensions.unite
-     pkgs.gnome-weather
+     pkgs.whitesur-icon-theme
+     pkgs.qogir-icon-theme
+     pkgs.qogir-theme
+
+    # XFCE panel plugins
+     pkgs.xfce.xfce4-verve-plugin
+     pkgs.xfce.xfce4-systemload-plugin
+     pkgs.xfce.xfce4-whiskermenu-plugin
+     pkgs.xfce.xfce4-weather-plugin
+     pkgs.xfce.xfce4-clipman-plugin
+
+     
      inputs.zen-browser.packages.${pkgs.system}.default
      pkgs.unzip
      pkgs.btop
