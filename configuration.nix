@@ -70,7 +70,7 @@
   # PACKAGES
   environment.systemPackages = [
      pkgs.wget
-     pkgs.kitty
+     pkgs.foot
      pkgs.git
      pkgs.spyder
      pkgs.gnomeExtensions.just-perfection
@@ -85,6 +85,8 @@
      pkgs.gnomeExtensions.unite
      pkgs.gnome-weather
      inputs.zen-browser.packages.${pkgs.system}.default
+     pkgs.unzip
+     pkgs.btop
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
