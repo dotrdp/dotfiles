@@ -43,20 +43,8 @@
     };
   };
   
-  programs.zsh = {
-  #for actual config
-  enable = true;
-  shellAliases = {
-    #my aliases I guess?
-  };
-};
 
- oh-my-zsh = {
-    enable = true;
-    plugins = [ ];
-    theme = "agnoster";
-  };
- };
+ 
 
 
 
