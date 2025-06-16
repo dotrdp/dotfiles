@@ -37,8 +37,11 @@
     enable = true;
 
     # Enable the XFCE Desktop Environment.
-    displayManager.sddm = {
-      enable = true;
+    displayManager = {
+      gdm = {
+        enable = true;
+      };
+      sessionPackages = [ pkgs.niri ];
     };
     desktopManager = {
       xterm.enable = false;
@@ -79,6 +82,12 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   # PACKAGES
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   environment.systemPackages = [
      pkgs.wget
      pkgs.kitty
@@ -87,13 +96,12 @@
      pkgs.whitesur-icon-theme
      pkgs.qogir-icon-theme
      pkgs.qogir-theme
+     pkgs.mako
+     pkgs.gnome-keyring
+     pkgs.fuzzel
+     pkgs.xwayland-satellite
 
-    # XFCE panel plugins
-     pkgs.xfce.xfce4-verve-plugin
-     pkgs.xfce.xfce4-systemload-plugin
-     pkgs.xfce.xfce4-whiskermenu-plugin
-     pkgs.xfce.xfce4-weather-plugin
-     pkgs.xfce.xfce4-clipman-plugin
+    
 
      
      inputs.zen-browser.packages.${pkgs.system}.default

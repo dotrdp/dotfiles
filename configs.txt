@@ -1,0 +1,5 @@
+GO TO .CONFIG niri
+and add
+debug {
+    render-drm-device "/dev/dri/renderD128"
+}

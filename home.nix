@@ -15,12 +15,25 @@
     cursorTheme = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
-      size = 36;
+      size = 46;
     };
     iconTheme = {
       name = "WhiteSur-dark";
       package = pkgs.whitesur-icon-theme;
     };
+  };
+
+  programs.kitty = {
+      enable = true;
+      settings = {
+        font_family = "JetBrainsMono Nerd Font Mono";
+        bold_font = "JetBrainsMono Nerd Font Mono Extra Bold";
+        bold_italic_font = "JetBrainsMono Nerd Font Mono Extra Bold Italic";
+        shell = "fish";
+        cursor_trail = "1";
+        font_size = "13.0";
+      };
+      themeFile = "Catppuccin-Macchiato";
   };
 
  
