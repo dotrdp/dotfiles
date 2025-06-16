@@ -80,7 +80,6 @@
   
   # PROGRAMS
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
   # PACKAGES
   xdg.portal = {
     enable = true;
@@ -100,6 +99,7 @@
      pkgs.gnome-keyring
      pkgs.fuzzel
      pkgs.xwayland-satellite
+     pkgs.waybar
 
     
 
