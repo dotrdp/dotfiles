@@ -87,6 +87,7 @@
      inputs.zen-browser.packages.${pkgs.system}.default
      pkgs.unzip
      pkgs.btop
+     pkgs.fastfetch
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
