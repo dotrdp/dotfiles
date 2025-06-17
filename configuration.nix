@@ -100,7 +100,7 @@
      pkgs.fuzzel
      pkgs.xwayland-satellite
      pkgs.waybar
-
+     pkgs.nitch
     
 
      
