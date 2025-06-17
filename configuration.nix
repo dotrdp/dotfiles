@@ -90,6 +90,7 @@
   fonts.packages = with pkgs; [
    nerd-fonts.cousine
   ];
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = [
      pkgs.nerd-fonts.cousine
      pkgs.wget
