@@ -18,6 +18,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./quickshell/default.nix
         home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
