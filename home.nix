@@ -36,6 +36,26 @@
       themeFile = "Catppuccin-Macchiato";
   };
 
+
+    programs.fish = {
+      enable = true;
+      plugins = [
+        {
+          name = "tide";
+          inherit (pkgs.fishPlugins.tide) src;
+        }
+      ];
+     
+
+      # Disable Fish greeting & add ~/bin to path
+      shellInit = ''
+        set fish_greeting
+        set PATH "$HOME/bin:$PATH"
+        nitch
+      '';
+    };
+
+
  
 
 
