@@ -22,7 +22,7 @@
       package = pkgs.whitesur-icon-theme;
     };
   };
-
+  
   programs.kitty = {
       enable = true;
       settings = {

@@ -87,7 +87,11 @@
     # gtk portal needed to make gtk apps happy
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+  fonts.packages = with pkgs; [
+   nerd-fonts.cousine
+  ];
   environment.systemPackages = [
+     pkgs.nerd-fonts.cousine
      pkgs.wget
      pkgs.kitty
      pkgs.git
