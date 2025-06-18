@@ -85,7 +85,7 @@
     enable = true;
     wlr.enable = true;
     # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
   };
   fonts.packages = with pkgs; [
    nerd-fonts.cousine
@@ -96,7 +96,7 @@
      pkgs.wget
      pkgs.kitty
      pkgs.git
-     pkgs.spyder
+
      pkgs.whitesur-icon-theme
      pkgs.qogir-icon-theme
      pkgs.qogir-theme
