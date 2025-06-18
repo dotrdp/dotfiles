@@ -70,13 +70,13 @@
   # PACKAGES
   environment.systemPackages = [
      pkgs.wget
-     pkgs.foot
+     pkgs.kitty
      pkgs.git
-     pkgs.spyder
      pkgs.gnomeExtensions.just-perfection
      pkgs.gnomeExtensions.pop-shell
      pkgs.gnome-tweaks # For managing extensions
      pkgs.gnomeExtensions.open-bar
+     pkgs.gnomeExtensions.paperwm
      pkgs.gnomeExtensions.logo-menu
      pkgs.gnomeExtensions.media-controls
      pkgs.gnomeExtensions.rounded-window-corners-reborn
