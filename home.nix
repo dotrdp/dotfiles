@@ -7,10 +7,13 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
+    package = pkgs.rose-pine-cursor;
+    name = "rose-pine-cursor";
+    size = 20; #gsettings set org.gnome.desktop.interface cursor-theme BreezeX-RosePine-Linux
   };
+  
+
+  
 
   gtk = {
     enable = true;
@@ -25,11 +28,6 @@
       name = "Adwaita";
     };
 
-    font = {
-      name = "Sans";
-      size = 11;
-    };
-
     gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
     gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
   };
@@ -37,20 +35,27 @@
   dconf = {
     enable = true;
     settings = {
-      "org/gnome/desktop/interface" = {
+      "org/gnome/desktop/interface" = pkgs.lib.mkForce {
         color-scheme = "prefer-dark";
+        cursor-theme = "BreezeX-RosePine-Linux";
       };
+
     };
   };
   programs.kitty = {
       enable = true;
+   
       settings = {
-        font_family = "JetBrainsMono Nerd Font Mono";
-        bold_font = "JetBrainsMono Nerd Font Mono Extra Bold";
-        bold_italic_font = "JetBrainsMono Nerd Font Mono Extra Bold Italic";
+        font_family = "Inconsolata Nerd Font Mono";
+        bold_font = "Inconsolata Nerd Font Mono Extra Bold";
+        bold_italic_font = "Inconsolata Nerd Font Mono Extra Bold Italic";
         shell = "fish";
         cursor_trail = "1";
+        cursor_trail_decay = "0.1 0.4";
         font_size = "13.0";
+        confirm_os_window_close = "0";
+        hide_window_decorations = "no";
+        wayland_titlebar_color = "background";
       };
       themeFile = "Catppuccin-Macchiato";
   };
@@ -58,12 +63,7 @@
 
     programs.fish = {
       enable = true;
-      plugins = [
-        {
-          name = "tide";
-          inherit (pkgs.fishPlugins.tide) src;
-        }
-      ];
+      loginShellInit = "starship init fish | source"; 
      
 
       # Disable Fish greeting & add ~/bin to path
@@ -73,7 +73,10 @@
         nitch
       '';
     };
-  
+    programs.starship = {
+      enable = true;
+    };
+    
 
  
 

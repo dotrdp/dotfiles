@@ -68,10 +68,18 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   # PACKAGES
+  fonts.packages = with pkgs; [
+    texlivePackages.inconsolata-nerd-font
+  ];
   environment.systemPackages = [
      pkgs.wget
      pkgs.kitty
      pkgs.git
+     pkgs.nitch
+     pkgs.asahi-bless
+     pkgs.ungoogled-chromium
+     pkgs.texlivePackages.inconsolata-nerd-font
+     pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.just-perfection
      pkgs.gnomeExtensions.pop-shell
      pkgs.gnome-tweaks # For managing extensions
