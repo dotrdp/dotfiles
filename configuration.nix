@@ -77,7 +77,8 @@
      pkgs.git
      pkgs.nitch
      pkgs.asahi-bless
-     pkgs.ungoogled-chromium
+     pkgs.vivaldi
+     pkgs.gnomeExtensions.arcmenu
      pkgs.texlivePackages.inconsolata-nerd-font
      pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.just-perfection
@@ -92,7 +93,8 @@
      pkgs.gnomeExtensions.weather-oclock
      pkgs.gnomeExtensions.unite
      pkgs.gnome-weather
-     inputs.zen-browser.packages.${pkgs.system}.default
+     pkgs.rose-pine-cursor
+     pkgs.vivaldi-ffmpeg-codecs
      pkgs.unzip
      pkgs.btop
      pkgs.fastfetch
