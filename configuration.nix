@@ -99,6 +99,7 @@
      pkgs.unzip
      pkgs.btop
      pkgs.fastfetch
+     pkgs.python3
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [

@@ -62,7 +62,9 @@
     programs.fish = {
       enable = true;
       loginShellInit = "starship init fish | source"; 
-     
+      shellAliases = {
+        startdev = "cp -r /Templates/. . && direnv allow";
+      };
 
       # Disable Fish greeting & add ~/bin to path
       shellInit = ''
