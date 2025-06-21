@@ -17,8 +17,8 @@
     enable = true;
 
     theme = {
-      package = pkgs.tokyonight-gtk-theme;
-      name = "tokyonight-gtk-theme";
+      package = pkgs.gnome-themes-extra;
+      name = "Adwaita-dark";
     };
 
     iconTheme = {
