@@ -26,8 +26,8 @@
       name = "Adwaita";
     };
 
-    gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
-    gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
+    #gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
+    #gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
   };
 
   dconf = {
@@ -58,12 +58,15 @@
       themeFile = "Catppuccin-Macchiato";
   };
 
+  programs.helix = {
+    enable = true;
+  };
 
-    programs.fish = {
+  programs.fish = {
       enable = true;
       loginShellInit = "starship init fish | source"; 
       shellAliases = {
-        startdev = "cp -r /Templates/. . && direnv allow";
+        startdev = "cp -r $HOME/Templates/. . && direnv allow";
       };
 
       # Disable Fish greeting & add ~/bin to path
