@@ -54,7 +54,7 @@
         cursor_trail_decay = "0.1 0.4";
         font_size = "13.0";
         confirm_os_window_close = "0";
-        hide_window_decorations = "yes";
+        hide_window_decorations = "no";
 
         wayland_titlebar_color = "background";
       };
@@ -63,6 +63,11 @@
   
   programs.ghostty = {
     enable = true;
+    
+    settings = {
+      shell-integration = "fish";
+      
+    };
   };
 
   programs.helix = {
