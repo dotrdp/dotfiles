@@ -40,6 +40,8 @@
 
     };
   };
+
+  
   programs.kitty = {
       enable = true;
    
@@ -53,6 +55,8 @@
         font_size = "13.0";
         confirm_os_window_close = "0";
         hide_window_decorations = "no";
+        window_border_width = "0";
+        draw_minimal_borders = "yes";
         wayland_titlebar_color = "background";
       };
       themeFile = "Catppuccin-Macchiato";
