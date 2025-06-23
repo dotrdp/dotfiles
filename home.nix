@@ -54,12 +54,15 @@
         cursor_trail_decay = "0.1 0.4";
         font_size = "13.0";
         confirm_os_window_close = "0";
-        hide_window_decorations = "no";
-        window_border_width = "0";
-        draw_minimal_borders = "yes";
+        hide_window_decorations = "yes";
+
         wayland_titlebar_color = "background";
       };
       themeFile = "Catppuccin-Macchiato";
+  };
+  
+  programs.ghostty = {
+    enable = true;
   };
 
   programs.helix = {
