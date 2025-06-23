@@ -61,12 +61,21 @@
       themeFile = "Catppuccin-Macchiato";
   };
   
-  programs.ghostty = {
+  programs.alacritty = {
     enable = true;
     
     settings = {
-      shell-integration = "fish";
-      
+      general = {
+        import = ["~/.config/colorscheme.toml"];
+      };
+      window = {
+        decorations = "None";
+      };
+      terminal = {
+      shell = {
+        program = "fish";
+        };
+      };
     };
   };
 
