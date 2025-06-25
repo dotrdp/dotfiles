@@ -37,7 +37,9 @@
         color-scheme = "prefer-dark";
         cursor-theme = "BreezeX-RosePine-Linux";
       };
-
+      "org/gnome/desktop/applications/terminal" = {
+        exec = "alacritty";
+      };
     };
   };
 

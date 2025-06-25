@@ -79,6 +79,7 @@
      pkgs.asahi-bless
      pkgs.vivaldi
      pkgs.direnv
+     pkgs.steam-run
      pkgs.gnomeExtensions.arcmenu
      pkgs.texlivePackages.inconsolata-nerd-font
      pkgs.gnomeExtensions.blur-my-shell
