@@ -85,7 +85,7 @@
      pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.just-perfection
      pkgs.gnomeExtensions.pop-shell
-     pkgs.gnomeExtensions.dash-to-panel-menu
+     pkgs.gnomeExtensions.dash-to-panel
      pkgs.gnome-tweaks # For managing extensions
      pkgs.gnomeExtensions.open-bar
      pkgs.gnomeExtensions.paperwm
