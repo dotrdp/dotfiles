@@ -44,24 +44,7 @@
   };
 
   
-  programs.kitty = {
-      enable = true;
-   
-      settings = {
-        font_family = "Inconsolata Nerd Font Mono";
-        bold_font = "Inconsolata Nerd Font Mono Extra Bold";
-        bold_italic_font = "Inconsolata Nerd Font Mono Extra Bold Italic";
-        shell = "fish";
-        cursor_trail = "1";
-        cursor_trail_decay = "0.1 0.4";
-        font_size = "13.0";
-        confirm_os_window_close = "0";
-        hide_window_decorations = "no";
 
-        wayland_titlebar_color = "background";
-      };
-      themeFile = "Catppuccin-Macchiato";
-  };
   
   programs.alacritty = {
     enable = true;
@@ -99,9 +82,10 @@
         nitch
       '';
     };
-    programs.starship = {
-      enable = true;
-    };
+    
+   # programs.starship = {
+  #    enable = true;
+ #   };
     
 
  

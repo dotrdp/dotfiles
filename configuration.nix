@@ -73,7 +73,7 @@
   ];
   environment.systemPackages = [
      pkgs.wget
-     pkgs.kitty
+
      pkgs.git
      pkgs.nitch
      pkgs.asahi-bless
