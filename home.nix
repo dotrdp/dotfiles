@@ -30,6 +30,20 @@
     #gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
   };
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -al";
+    };
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "marlonrichert/zsh-autocomplete"; }
+      ];
+    };
+  };
+
   dconf = {
     enable = true;
     settings = {
@@ -58,7 +72,7 @@
       };
       terminal = {
       shell = {
-        program = "fish";
+        program = "zsh";
         };
       };
     };
@@ -68,24 +82,13 @@
     enable = true;
   };
 
-  programs.fish = {
-      enable = true;
-      loginShellInit = "starship init fish | source"; 
-      shellAliases = {
-        startdev = "cp -r $HOME/Templates/. . && direnv allow";
-      };
-
-      # Disable Fish greeting & add ~/bin to path
-      shellInit = ''
-        set fish_greeting
-        set PATH "$HOME/bin:$PATH"
-        nitch
-      '';
-    };
+  
+  
     
-   # programs.starship = {
-  #    enable = true;
- #   };
+   programs.starship = {
+      enable = true;
+      settings = pkgs.importTOML ./stjetpack.toml
+    };
     
 
  

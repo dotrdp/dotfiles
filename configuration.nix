@@ -80,6 +80,8 @@
      pkgs.vivaldi
      pkgs.direnv
     
+    
+
      pkgs.gnomeExtensions.arcmenu
      pkgs.texlivePackages.inconsolata-nerd-font
      pkgs.gnomeExtensions.blur-my-shell
