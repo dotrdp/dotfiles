@@ -86,8 +86,7 @@
   
     
    programs.starship = {
-      enable = true;
-      settings = pkgs.importTOML ./stjetpack.toml
+      enable = true;    
     };
     
 

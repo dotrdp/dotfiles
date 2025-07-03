@@ -69,7 +69,7 @@
   programs.hyprland.enable = true;
   # PACKAGES
   fonts.packages = with pkgs; [
-    texlivePackages.inconsolata-nerd-font
+    nerd-fonts.jetbrains-mono
   ];
   environment.systemPackages = [
      pkgs.wget
@@ -83,7 +83,9 @@
     
 
      pkgs.gnomeExtensions.arcmenu
-     pkgs.texlivePackages.inconsolata-nerd-font
+     
+     pkgs.nerd-fonts.jetbrains-mono
+
      pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.just-perfection
      pkgs.gnomeExtensions.pop-shell
