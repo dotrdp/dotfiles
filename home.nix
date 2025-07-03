@@ -32,7 +32,7 @@
 
 programs.zsh = {
   enable = true;
-
+  completionInit = "nitch";
   zplug = {
     enable = true;
     plugins = [
@@ -54,9 +54,6 @@ programs.zsh = {
     };
   };
 
-  
-
-  
   programs.alacritty = {
     enable = true;
     
@@ -64,15 +61,29 @@ programs.zsh = {
       general = {
         import = ["~/.config/colorscheme.toml"];
       };
+      font = {
+        normal = {
+          family = "FiraCode Nerd Font";
+        };
+      };
       window = {
         decorations = "None";
       };
       terminal = {
       shell = {
         program = "zsh";
-        args = [ "nitch" ];
         };
       };
+    };
+  };
+
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      font-family = "FiraCode Nerd Font";
+      font-feature = [ "-liga" ];
+      window-decoration = "false";
+      shell-integration = "zsh";
     };
   };
 
@@ -83,9 +94,7 @@ programs.zsh = {
   
   
     
-   programs.starship = {
-      enable = true;    
-    };
+   
     
 
  

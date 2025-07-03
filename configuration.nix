@@ -69,7 +69,7 @@
   programs.hyprland.enable = true;
   # PACKAGES
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
   environment.systemPackages = [
      pkgs.wget
@@ -79,12 +79,12 @@
      pkgs.asahi-bless
      pkgs.vivaldi
      pkgs.direnv
-    
-    
+
+     pkgs.starship
 
      pkgs.gnomeExtensions.arcmenu
      
-     pkgs.nerd-fonts.jetbrains-mono
+     pkgs.nerd-fonts.fira-code
 
      pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.just-perfection
