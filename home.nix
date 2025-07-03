@@ -94,7 +94,19 @@ programs.zsh = {
 
   programs.helix = {
     enable = true;
-    theme = "carbonfox";
+    settings = {
+      theme = "carbonfox";
+      editor = {
+        whitespace = {
+          render = {
+            newline = "all";
+          };
+          characters = {
+            newline = "❄¬";
+          };
+        };
+      };
+    };
   };
 
   programs.starship = {
