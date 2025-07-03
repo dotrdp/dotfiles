@@ -88,11 +88,13 @@ programs.zsh = {
       window-decoration = "false";
       initial-command = "zsh";
       theme = "carbonfox";
+      confirm-close-surface = "false";
     };
   };
 
   programs.helix = {
     enable = true;
+    theme = "carbonfox";
   };
 
   programs.starship = {
