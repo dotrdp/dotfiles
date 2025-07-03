@@ -30,19 +30,17 @@
     #gtk4.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
   };
 
-  programs.zsh = {
+programs.zsh = {
+  enable = true;
+
+  zplug = {
     enable = true;
-    shellAliases = {
-      ll = "ls -al";
-    };
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "marlonrichert/zsh-autocomplete"; }
-      ];
-    };
+    plugins = [
+      { name = "marlonrichert/zsh-autocomplete"; } # Simple plugin installation
+      { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
+    ];
   };
+};
 
   dconf = {
     enable = true;
