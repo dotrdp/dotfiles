@@ -61,6 +61,7 @@
        tree
        
      ];
+     
    };
   nixpkgs.config.allowUnfree = true;
   
@@ -79,8 +80,6 @@
      pkgs.asahi-bless
      pkgs.vivaldi
      pkgs.direnv
-
-     pkgs.starship
 
      pkgs.gnomeExtensions.arcmenu
      

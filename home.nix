@@ -16,6 +16,7 @@
   gtk = {
     enable = true;
 
+
     theme = {
       package = pkgs.gnome-themes-extra;
       name = "Adwaita-dark";
@@ -37,6 +38,7 @@ programs.zsh = {
     enable = true;
     plugins = [
       { name = "marlonrichert/zsh-autocomplete"; } # Simple plugin installation
+      { name = "zsh-users/zsh-autosuggestions"; }
     ];
   };
 };
@@ -79,11 +81,12 @@ programs.zsh = {
 
   programs.ghostty = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
       font-family = "FiraCode Nerd Font";
       font-feature = [ "-liga" ];
       window-decoration = "false";
-      shell-integration = "zsh";
+      initial-command = "zsh";
     };
   };
 
@@ -91,7 +94,9 @@ programs.zsh = {
     enable = true;
   };
 
-  
+  programs.starship = {
+    enable = true;
+  };
   
     
    
