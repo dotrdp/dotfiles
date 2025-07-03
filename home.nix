@@ -56,28 +56,28 @@ programs.zsh = {
     };
   };
 
-  programs.alacritty = {
-    enable = true;
-    
-    settings = {
-      general = {
-        import = ["~/.config/colorscheme.toml"];
-      };
-      font = {
-        normal = {
-          family = "FiraCode Nerd Font";
-        };
-      };
-      window = {
-        decorations = "None";
-      };
-      terminal = {
-      shell = {
-        program = "zsh";
-        };
-      };
-    };
-  };
+  #programs.alacritty = {
+ #   enable = true;
+#    
+    #settings = {
+   #   general = {
+  #      import = ["~/.config/colorscheme.toml"];
+ #     };
+#      font = {
+      #  normal = {
+     #    family = "FiraCode Nerd Font";
+    #    };
+   #   };
+  #    window = {
+ #       decorations = "None";
+#      };
+      #terminal = {
+     # shell = {
+    #    program = "zsh";
+   #     };
+  #    };
+ #   };
+#  };
 
   programs.ghostty = {
     enable = true;
@@ -87,6 +87,7 @@ programs.zsh = {
       font-feature = [ "-liga" ];
       window-decoration = "false";
       initial-command = "zsh";
+      theme = "carbonfox";
     };
   };
 
