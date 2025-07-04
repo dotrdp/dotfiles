@@ -72,8 +72,13 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
+
+  
+
   environment.systemPackages = [
      pkgs.wget
+
+     pkgs.prismlauncher
 
      pkgs.git
      pkgs.nitch
