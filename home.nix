@@ -83,10 +83,10 @@ programs.zsh = {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "FiraCode Nerd Font";
-      font-feature = [ "-liga" ];
+      font-family = "MonoLisa";
+      font-feature = "liga, calt, dlig";
       window-decoration = "false";
-      initial-command = "zsh";
+      command = "zsh";
       theme = "carbonfox";
       confirm-close-surface = "false";
     };
@@ -102,8 +102,12 @@ programs.zsh = {
             newline = "all";
           };
           characters = {
-            newline = "❄¬";
+            newline = "❯";
           };
+        };
+        indent-guides = {
+          render = true;
+          character = "➔";
         };
       };
     };
@@ -112,14 +116,6 @@ programs.zsh = {
   programs.starship = {
     enable = true;
   };
-  
-    
-   
-    
-
- 
-
-
 
   home.stateVersion = "25.11";
 

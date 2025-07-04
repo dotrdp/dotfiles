@@ -105,6 +105,7 @@
      pkgs.btop
      pkgs.fastfetch
      pkgs.python3
+     
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -129,5 +130,5 @@
   services.openssh.enable = true;
   #DO NOT CHANGE THIS; PORFAVOR NOOOOO; NO LO MUEVAS; NO LO CAMBIES; NO HAY FORMA EN QUE PUEDA SALIR BIEN
   system.stateVersion = "25.11"; # Did you read the comment?
-
+  
 }
