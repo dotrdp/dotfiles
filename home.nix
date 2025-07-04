@@ -87,7 +87,7 @@ programs.zsh = {
       font-feature = "liga, calt, dlig";
       window-decoration = "false";
       command = "zsh";
-      theme = "carbon fox";
+      theme = "carbonfox";
       confirm-close-surface = "false";
     };
   };
@@ -102,7 +102,7 @@ programs.zsh = {
             newline = "all";
           };
           characters = {
-            newline = "∅";
+            newline = "›";
           };
         };
         indent-guides = {

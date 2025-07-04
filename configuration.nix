@@ -67,8 +67,8 @@
   
   # PROGRAMS
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
-  # PACKAGES
+
+  #packages
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
@@ -86,31 +86,27 @@
      pkgs.vivaldi
      pkgs.direnv
 
+     
+
      pkgs.gnomeExtensions.arcmenu
      
      pkgs.nerd-fonts.fira-code
 
      pkgs.gnomeExtensions.blur-my-shell
-     pkgs.gnomeExtensions.just-perfection
-     pkgs.gnomeExtensions.pop-shell
      pkgs.gnomeExtensions.dash-to-panel
      pkgs.gnome-tweaks # For managing extensions
-     pkgs.gnomeExtensions.open-bar
      pkgs.gnomeExtensions.paperwm
-     pkgs.gnomeExtensions.logo-menu
      pkgs.gnomeExtensions.media-controls
-     pkgs.gnomeExtensions.rounded-window-corners-reborn
-     pkgs.gnomeExtensions.compact-top-bar
      pkgs.gnomeExtensions.weather-oclock
-     pkgs.gnomeExtensions.unite
      pkgs.gnome-weather
      pkgs.rose-pine-cursor
      pkgs.vivaldi-ffmpeg-codecs
      pkgs.unzip
      pkgs.btop
      pkgs.fastfetch
+
      pkgs.python3
-     
+     pkgs.ruff
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
