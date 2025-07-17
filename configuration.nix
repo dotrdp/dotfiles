@@ -35,7 +35,7 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  
+ 
   # DISPLAYLINK DRIVER
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ]; 
   services.xserver.displayManager.sessionCommands = ''
@@ -68,17 +68,41 @@
   # PROGRAMS
   programs.firefox.enable = true;
 
-  #packages
+    #packages
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
 
   
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+	lua-language-server
+  ];
 
   environment.systemPackages = [
      pkgs.wget
 
      pkgs.prismlauncher
+     
+     pkgs.neovim
+     pkgs.gcc
+     pkgs.ripgrep
+     pkgs.fd
+     pkgs.wl-clipboard
+     pkgs.xclip
+     pkgs.gnumake42
+     pkgs.vimPlugins.lazydev-nvim
+     pkgs.nil
+     pkgs.stylua
+     pkgs.luajitPackages.luacheck
+     pkgs.lazygit
+
+     pkgs.nodejs_20
+
+     pkgs.gh-copilot
+     pkgs.gh
+
+     pkgs.tlrc
 
      pkgs.git
      pkgs.nitch
@@ -93,6 +117,7 @@
      pkgs.nerd-fonts.fira-code
 
      pkgs.gnomeExtensions.blur-my-shell
+     pkgs.gnomeExtensions.hide-cursor
      pkgs.gnomeExtensions.dash-to-panel
      pkgs.gnome-tweaks # For managing extensions
      pkgs.gnomeExtensions.paperwm
@@ -105,8 +130,11 @@
      pkgs.btop
      pkgs.fastfetch
 
-     pkgs.python3
-     pkgs.ruff
+     pkgs.python3Full
+     pkgs.pyright
+     pkgs.uv
+     pkgs.stdenv.cc.cc.lib
+
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [

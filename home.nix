@@ -33,15 +33,19 @@
 
 programs.zsh = {
   enable = true;
-  completionInit = "nitch";
+  completionInit = "eval \"$(direnv hook zsh)\" && clear && nitch";
+  shellAliases = {
+  };
   zplug = {
     enable = true;
     plugins = [
       { name = "marlonrichert/zsh-autocomplete"; } # Simple plugin installation
       { name = "zsh-users/zsh-autosuggestions"; }
+      { name = "chisui/zsh-nix-shell"; }
     ];
   };
 };
+programs.command-not-found.enable = true;
 
   dconf = {
     enable = true;
@@ -83,7 +87,7 @@ programs.zsh = {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "MonoLisa";
+      font-family = "MonoLisa Nerd Font";
       font-feature = "liga, calt, dlig";
       window-decoration = "false";
       command = "zsh";
@@ -92,32 +96,33 @@ programs.zsh = {
     };
   };
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "carbonfox";
-      editor = {
-        whitespace = {
-          render = {
-            newline = "all";
-          };
-          characters = {
-            newline = "›";
-          };
-        };
-        indent-guides = {
-          render = true;
-          character = "→";
-        };
-      };
-    };
-  };
+  # programs.helix = {
+  #   enable = true;
+  #   settings = {
+  #     theme = "carbonfox";
+  #     editor = {
+  #       whitespace = {
+  #         render = {
+  #           newline = "all";
+  #         };
+  #         characters = {
+  #           newline = "›";
+  #         };
+  #       };
+  #       indent-guides = {
+  #         render = true;
+  #         character = "→";
+  #       };
+  #     };
+  #   };
+  # }; ADIOSSSS HELIXXX NOOOOOOOOOOOOOOOOOOOOOO
 
   programs.starship = {
     enable = true;
   };
 
   home.stateVersion = "25.11";
+
 
   programs.home-manager.enable = true;
 }
