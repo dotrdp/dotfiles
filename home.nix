@@ -87,8 +87,8 @@ programs.command-not-found.enable = true;
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "MonoLisa Nerd Font";
-      font-feature = "liga, calt, dlig";
+      font-family = "Maple Mono NF";
+      font-feature = "liga, calt, dlig, keep-infinite-arrow=true";
       window-decoration = "false";
       command = "zsh";
       theme = "carbonfox";

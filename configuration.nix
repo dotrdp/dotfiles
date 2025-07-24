@@ -12,10 +12,18 @@
 
     ];
   #HARDWARE  
-  hardware.bluetooth.enable = true;
+ hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Experimental = "true";
+      };
+    };
+  };
   hardware.asahi.useExperimentalGPUDriver = true;    
   hardware.asahi.setupAsahiSound = true;
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.keyboard.qmk.enable = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -29,8 +37,14 @@
   };
   time.timeZone = "America/Mexico_City";
   i18n.defaultLocale = "en_US.UTF-8";
+services.udev = {
+  packages = with pkgs; [
+    qmk
+    qmk-udev-rules
+    qmk_hid
+];
   
-
+  };
   # DE
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
@@ -71,6 +85,7 @@
     #packages
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    pkgs.maple-mono.NF-unhinted
   ];
 
   
@@ -78,11 +93,14 @@
   programs.nix-ld.libraries = with pkgs; [
 	lua-language-server
   ];
-
+  environment.variables = {
+  EDITOR = "nvim";
+  };
   environment.systemPackages = [
      pkgs.wget
 
      pkgs.prismlauncher
+     pkgs.cargo
      
      pkgs.neovim
      pkgs.gcc
@@ -96,6 +114,7 @@
      pkgs.stylua
      pkgs.luajitPackages.luacheck
      pkgs.lazygit
+     pkgs.cava
 
      pkgs.nodejs_20
 
@@ -106,10 +125,13 @@
 
      pkgs.git
      pkgs.nitch
+
      pkgs.asahi-bless
+     pkgs.mesa
+     pkgs.box64
+
      pkgs.vivaldi
      pkgs.direnv
-
      
 
      pkgs.gnomeExtensions.arcmenu
@@ -134,6 +156,7 @@
      pkgs.pyright
      pkgs.uv
      pkgs.stdenv.cc.cc.lib
+
 
      #VSCODE STUFF
     (pkgs.vscode-with-extensions.override {
