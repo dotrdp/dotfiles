@@ -38,8 +38,8 @@
   # nix.settings.extra-platforms = ["i686-linux" "x86_64-linux" "i386-linux" "i486-linux" "i586-linux" "i686-linux"];
   #FLAKE
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
-  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
-  nix.settings.extra-platforms = [ "x86_64-linux" ];
+  # boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+  # nix.settings.extra-platforms = [ "x86_64-linux" ];
   # NETWORK STUFF
   networking.hostName = "rdp";
   networking.wireless.iwd = {
@@ -79,7 +79,6 @@
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
        tree
-       
      ];
      
    };
@@ -89,8 +88,7 @@
 
     #packages
   fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    pkgs.maple-mono.NF-unhinted
+    maple-mono.NF-unhinted
   ];
 
   
@@ -104,11 +102,6 @@
 # NOTE: [INFO] SYSTEM PACKAGES
   environment.systemPackages = [
      pkgs.wget
-
-     pkgs.prismlauncher
-     pkgs.cargo
-
-     pkgs.cytoscape
 
      pkgs.neovim
      pkgs.gcc
@@ -159,11 +152,8 @@
      pkgs.fastfetch
 
      pkgs.python3Full
-     pkgs.python313Packages.setuptools
      pkgs.pyright
      pkgs.uv
-     pkgs.stdenv.cc.cc.lib
-
     
    ];
 
