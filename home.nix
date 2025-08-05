@@ -33,15 +33,36 @@
 
 programs.zsh = {
   enable = true;
+  syntaxHighlighting.enable = true;
   completionInit = "eval \"$(direnv hook zsh)\" && clear && nitch";
   shellAliases = {
+	nvimc = "ghostty -e nvim .";
+	storage = "nix-shell -p ncdu --command 'ncdu /'";
   };
+  plugins = [
+  {
+    name = "powerlevel10k";
+    src = pkgs.zsh-powerlevel10k;
+    file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  }
+  {
+    name = "powerlevel10k-config";
+    src = ./p10k-config;
+    file = "p10k.zsh";
+  }		
+];
   zplug = {
     enable = true;
     plugins = [
       { name = "marlonrichert/zsh-autocomplete"; } # Simple plugin installation
       { name = "zsh-users/zsh-autosuggestions"; }
       { name = "chisui/zsh-nix-shell"; }
+    ];
+  };
+  oh-my-zsh = {
+    enable = true;
+    plugins = [
+      "git"
     ];
   };
 };
@@ -86,16 +107,43 @@ programs.command-not-found.enable = true;
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+	#      themes = {
+	# kanagawa-wave = {
+	#   background = "#1f1f28";
+	#   foreground = "#dcd7ba";
+	#   cursor-color = "#c8c093";
+	#   palette = [
+	#         "0=#16161d"
+	# 	"1=#c34043"
+	# 	"2=#76946a"
+	# 	"3=#c0a36e"
+	# 	"4=#7e9cd8"
+	# 	"5=#957fb8"
+	# 	"6=#6a9589"
+	# 	"7=#c8c093"
+	# 	"8=#727169"
+	# 	"9=#e82424"
+	# 	"10=#98bb6c"
+	# 	"11=#e6c384"
+	# 	"12=#7fb4ca"
+	# 	"13=#938aa9"
+	# 	"14=#7aa89f"
+	# 	"15=#dcd7ba"
+	#   ];
+	#   selection-background = "#2d4f67";
+	#   selection-foreground = "#c8c093";
+	# };
+	#    };
+	#
     settings = {
       font-family = "Maple Mono NF";
       font-feature = "liga, calt, dlig, keep-infinite-arrow=true";
       window-decoration = "false";
       command = "zsh";
-      theme = "carbonfox";
       confirm-close-surface = "false";
-    };
+      theme = "Kaganaga Wave";
+      };
   };
-
   # programs.helix = {
   #   enable = true;
   #   settings = {
@@ -117,9 +165,9 @@ programs.command-not-found.enable = true;
   #   };
   # }; ADIOSSSS HELIXXX NOOOOOOOOOOOOOOOOOOOOOO
 
-  programs.starship = {
-    enable = true;
-  };
+  # programs.starship = {
+  #   enable = true;
+  # };
 
   home.stateVersion = "25.11";
 
