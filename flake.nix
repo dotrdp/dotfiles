@@ -2,13 +2,14 @@
   description = "rd dotfiles";
 
   inputs = {
-    pkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
+    apple-silicon-support.url = "github:tpwrules/nixos-apple-silicon";
   };
 
-  outputs = { self, pkgs, home-manager, ... } @inputs: {
-    nixosConfigurations.nixos = pkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... } @inputs: {
+    nixosConfigurations.rdp = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit inputs; };
       modules = [
@@ -23,6 +24,7 @@
             # arguments to home.nix
           }
       ];
+
     };
   };
 }

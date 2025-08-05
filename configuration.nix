@@ -8,7 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./apple-silicon-support
+      inputs.apple-silicon-support.nixosModules.apple-silicon-support
 
     ];
   #HARDWARE  
@@ -27,30 +27,36 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB
+  }];
+  zramSwap.enable = true;
+
+  # boot.binfmt.emulatedSystems = ["i686-linux" "x86_64-linux" "i386-linux" "i486-linux" "i586-linux" "i686-linux"];
+  # nix.settings.extra-platforms = ["i686-linux" "x86_64-linux" "i386-linux" "i486-linux" "i586-linux" "i686-linux"];
   #FLAKE
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+  nix.settings.extra-platforms = [ "x86_64-linux" ];
   # NETWORK STUFF
-  networking.hostName = "nixos";
+  networking.hostName = "rdp";
   networking.wireless.iwd = {
   enable = true;
   settings.General.EnableNetworkConfiguration = true;
   };
   time.timeZone = "America/Mexico_City";
   i18n.defaultLocale = "en_US.UTF-8";
-services.udev = {
-  packages = with pkgs; [
-    qmk
-    qmk-udev-rules
-    qmk_hid
-];
   
-  };
+
   # DE
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
  
   # DISPLAYLINK DRIVER
+  nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "displaylink" "modesetting" ]; 
   services.xserver.displayManager.sessionCommands = ''
     ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
@@ -77,7 +83,6 @@ services.udev = {
      ];
      
    };
-  nixpkgs.config.allowUnfree = true;
   
   # PROGRAMS
   programs.firefox.enable = true;
@@ -94,14 +99,17 @@ services.udev = {
 	lua-language-server
   ];
   environment.variables = {
-  EDITOR = "nvim";
+  	EDITOR = "nvim";
   };
+# NOTE: [INFO] SYSTEM PACKAGES
   environment.systemPackages = [
      pkgs.wget
 
      pkgs.prismlauncher
      pkgs.cargo
-     
+
+     pkgs.cytoscape
+
      pkgs.neovim
      pkgs.gcc
      pkgs.ripgrep
@@ -117,6 +125,8 @@ services.udev = {
      pkgs.cava
 
      pkgs.nodejs_20
+     pkgs.vivaldi
+     pkgs.vivaldi-ffmpeg-codecs
 
      pkgs.gh-copilot
      pkgs.gh
@@ -128,15 +138,12 @@ services.udev = {
 
      pkgs.asahi-bless
      pkgs.mesa
-     pkgs.box64
 
-     pkgs.vivaldi
      pkgs.direnv
      
 
      pkgs.gnomeExtensions.arcmenu
      
-     pkgs.nerd-fonts.fira-code
 
      pkgs.gnomeExtensions.blur-my-shell
      pkgs.gnomeExtensions.hide-cursor
@@ -147,32 +154,16 @@ services.udev = {
      pkgs.gnomeExtensions.weather-oclock
      pkgs.gnome-weather
      pkgs.rose-pine-cursor
-     pkgs.vivaldi-ffmpeg-codecs
      pkgs.unzip
      pkgs.btop
      pkgs.fastfetch
 
      pkgs.python3Full
+     pkgs.python313Packages.setuptools
      pkgs.pyright
      pkgs.uv
      pkgs.stdenv.cc.cc.lib
 
-
-     #VSCODE STUFF
-    (pkgs.vscode-with-extensions.override {
-    vscodeExtensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      nonylene.dark-molokai-theme
-      
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "remote-ssh-edit";
-        publisher = "ms-vscode-remote";
-        version = "0.47.2";
-        sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
-      }
-    ]; 
-  })
     
    ];
 
@@ -180,6 +171,7 @@ services.udev = {
   programs.mtr.enable = true;
   programs.ssh.startAgent = true;
   services.openssh.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
   #DO NOT CHANGE THIS; PORFAVOR NOOOOO; NO LO MUEVAS; NO LO CAMBIES; NO HAY FORMA EN QUE PUEDA SALIR BIEN
   system.stateVersion = "25.11"; # Did you read the comment?
   
