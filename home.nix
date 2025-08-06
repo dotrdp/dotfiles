@@ -42,9 +42,12 @@ programs.zsh = {
   zplug = {
     enable = true;
     plugins = [
-      { name = "marlonrichert/zsh-autocomplete"; } # Simple plugin installation
+      { name = "zsh-users/zsh-completions"; } 
       { name = "zsh-users/zsh-autosuggestions"; }
       { name = "chisui/zsh-nix-shell"; }
+      { name = "zsh-users/zsh-history-substring-search"; }
+      { name = "MichaelAquilina/zsh-you-should-use"; }
+      { name = "atuinsh/atuin"; }
     ];
   };
   oh-my-zsh = {
@@ -95,41 +98,13 @@ programs.command-not-found.enable = true;
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-	#      themes = {
-	# kanagawa-wave = {
-	#   background = "#1f1f28";
-	#   foreground = "#dcd7ba";
-	#   cursor-color = "#c8c093";
-	#   palette = [
-	#         "0=#16161d"
-	# 	"1=#c34043"
-	# 	"2=#76946a"
-	# 	"3=#c0a36e"
-	# 	"4=#7e9cd8"
-	# 	"5=#957fb8"
-	# 	"6=#6a9589"
-	# 	"7=#c8c093"
-	# 	"8=#727169"
-	# 	"9=#e82424"
-	# 	"10=#98bb6c"
-	# 	"11=#e6c384"
-	# 	"12=#7fb4ca"
-	# 	"13=#938aa9"
-	# 	"14=#7aa89f"
-	# 	"15=#dcd7ba"
-	#   ];
-	#   selection-background = "#2d4f67";
-	#   selection-foreground = "#c8c093";
-	# };
-	#    };
-	#
     settings = {
       font-family = "Maple Mono NF";
       font-feature = "liga, calt, dlig, keep-infinite-arrow=true";
       window-decoration = "false";
-      command = "zsh";
+      command = "zsh && nitch";
       confirm-close-surface = "false";
-      theme = "Kanagawa Wave";
+      theme = "nord-wave";
       };
   };
   # programs.helix = {
