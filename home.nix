@@ -39,18 +39,6 @@ programs.zsh = {
 	nvimc = "ghostty -e nvim .";
 	storage = "nix-shell -p ncdu --command 'ncdu /'";
   };
-  plugins = [
-  {
-    name = "powerlevel10k";
-    src = pkgs.zsh-powerlevel10k;
-    file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-  }
-  {
-    name = "powerlevel10k-config";
-    src = ./p10k-config;
-    file = "p10k.zsh";
-  }		
-];
   zplug = {
     enable = true;
     plugins = [
@@ -141,7 +129,7 @@ programs.command-not-found.enable = true;
       window-decoration = "false";
       command = "zsh";
       confirm-close-surface = "false";
-      theme = "Kaganaga Wave";
+      theme = "Kanagawa Wave";
       };
   };
   # programs.helix = {
@@ -165,9 +153,9 @@ programs.command-not-found.enable = true;
   #   };
   # }; ADIOSSSS HELIXXX NOOOOOOOOOOOOOOOOOOOOOO
 
-  # programs.starship = {
-  #   enable = true;
-  # };
+  programs.starship = {
+    enable = true;
+  };
 
   home.stateVersion = "25.11";
 
