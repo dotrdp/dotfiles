@@ -11,7 +11,6 @@
     name = "rose-pine-cursor";
     size = 20; #gsettings set org.gnome.desktop.interface cursor-theme BreezeX-RosePine-Linux
   };
-  
 
   gtk = {
     enable = true;
@@ -107,26 +106,6 @@ programs.command-not-found.enable = true;
       theme = "Kanagawa Wave";
       };
   };
-  # programs.helix = {
-  #   enable = true;
-  #   settings = {
-  #     theme = "carbonfox";
-  #     editor = {
-  #       whitespace = {
-  #         render = {
-  #           newline = "all";
-  #         };
-  #         characters = {
-  #           newline = "›";
-  #         };
-  #       };
-  #       indent-guides = {
-  #         render = true;
-  #         character = "→";
-  #       };
-  #     };
-  #   };
-  # }; ADIOSSSS HELIXXX NOOOOOOOOOOOOOOOOOOOOOO
 
   programs.starship = {
     enable = true;
