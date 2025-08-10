@@ -9,7 +9,6 @@
     [ 
       ./hardware-configuration.nix
       inputs.apple-silicon-support.nixosModules.apple-silicon-support
-
     ];
   #HARDWARE  
  hardware.bluetooth = {

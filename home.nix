@@ -34,7 +34,7 @@
 programs.zsh = {
   enable = true;
   syntaxHighlighting.enable = true;
-  completionInit = "eval \"$(direnv hook zsh)\" && clear && nitch";
+  initContent = "eval \"$(direnv hook zsh)\" && clear && nitch";
   shellAliases = {
 	nvimc = "ghostty -e nvim .";
 	storage = "nix-shell -p ncdu --command 'ncdu /'";
@@ -102,9 +102,9 @@ programs.command-not-found.enable = true;
       font-family = "Maple Mono NF";
       font-feature = "liga, calt, dlig, keep-infinite-arrow=true";
       window-decoration = "false";
-      command = "zsh && nitch";
+      command = "zsh";
       confirm-close-surface = "false";
-      theme = "nord-wave";
+      theme = "Kanagawa Wave";
       };
   };
   # programs.helix = {
@@ -130,6 +130,7 @@ programs.command-not-found.enable = true;
 
   programs.starship = {
     enable = true;
+    settings = .config/starship.toml;
   };
 
   home.stateVersion = "25.11";
