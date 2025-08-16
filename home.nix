@@ -2,7 +2,7 @@
 
 {
   home.username = "rd";
-  home.homeDirectory = "/home/rd";
+  # home.homeDirectory = "/home/rd";
 
   home.pointerCursor = {
     gtk.enable = true;
