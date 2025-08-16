@@ -1,0 +1,31 @@
+# this is running at home-manager level
+{
+	programs.zsh = {
+	  enable = true;
+	  syntaxHighlighting.enable = true;
+	  initContent = "eval \"$(direnv hook zsh)\" && clear && nitch";
+	  shellAliases = {
+		nvimc = "ghostty -e nvim .";
+		storage = "nix-shell -p ncdu --command 'ncdu /'";
+		macos = "sudo asahi-bless --next --set-boot-macos -y && reboot";
+	  };
+	  zplug = {
+	    enable = true;
+	    plugins = [
+	      { name = "zsh-users/zsh-completions"; } 
+	      { name = "zsh-users/zsh-autosuggestions"; }
+	      { name = "chisui/zsh-nix-shell"; }
+	      { name = "zsh-users/zsh-history-substring-search"; }
+	      { name = "MichaelAquilina/zsh-you-should-use"; }
+	      { name = "atuinsh/atuin"; }
+	    ];
+	  };
+	  oh-my-zsh = {
+	    enable = true;
+	    plugins = [
+	      "git"
+	    ];
+	  };
+	};
+	programs.command-not-found.enable = true;
+}
