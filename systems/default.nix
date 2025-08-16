@@ -18,7 +18,9 @@
       system = sysArch;
       specialArgs = {inherit inputs self;};
 
-	modules = nixpkgs.lib.filesystem.listFilesRecursive ./${sysName} ++ [
+# nixpkgs.lib.filesystem.listFilesRecursive ./${sysName} ++ 
+	modules = [
+	./${sysName}
         home-manager.nixosModules.home-manager
 	{
 	           home-manager.useGlobalPkgs = true;

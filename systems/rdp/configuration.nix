@@ -7,7 +7,6 @@
 {
   imports =
     [ 
-      ./hardware-configuration.nix
       inputs.apple-silicon-support.nixosModules.apple-silicon-support
     ];
   #HARDWARE  
@@ -22,7 +21,7 @@
   hardware.asahi.useExperimentalGPUDriver = true;    
   hardware.asahi.setupAsahiSound = true;
 
-  hardware.asahi.peripheralFirmwareDirectory = ../../firmware;
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
   hardware.keyboard.qmk.enable = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
