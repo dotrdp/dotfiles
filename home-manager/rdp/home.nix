@@ -111,7 +111,7 @@ programs.command-not-found.enable = true;
   programs.starship = {
     enable = true;
   };
-  xdg.configFile."starship.toml".source = .config/starship.toml;
+  xdg.configFile."starship.toml".source = ../../dotfiles/starship.toml;
 
   home.stateVersion = "25.11";
 

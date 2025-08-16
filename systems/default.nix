@@ -13,6 +13,8 @@
 ];
 
   mkSystem = sysName: sysArch: 
+	let hmc = import ../home-manager/${sysName};
+		in
     nixpkgs.lib.nixosSystem {
       # TODO: move this to the host itself
       system = sysArch;
@@ -21,15 +23,7 @@
 # nixpkgs.lib.filesystem.listFilesRecursive ./${sysName} ++ 
 	modules = [
 	./${sysName}
-        home-manager.nixosModules.home-manager
-	{
-	           home-manager.useGlobalPkgs = true;
-	           home-manager.useUserPackages = true;
-	           home-manager.users.rd = ../home.nix;
-	           home-manager.backupFileExtension = "backup";
-	           # Optionally, use home-manager.extraSpecialArgs to pass
-	           # arguments to home.nix
-	}
+	home-manager.nixosModules.home-manager hmc
 	];
     };
 
