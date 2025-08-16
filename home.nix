@@ -37,6 +37,7 @@ programs.zsh = {
   shellAliases = {
 	nvimc = "ghostty -e nvim .";
 	storage = "nix-shell -p ncdu --command 'ncdu /'";
+	macos = "sudo asahi-bless --next --set-boot-macos -y && reboot";
   };
   zplug = {
     enable = true;

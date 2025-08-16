@@ -21,6 +21,25 @@
   };
   hardware.asahi.useExperimentalGPUDriver = true;    
   hardware.asahi.setupAsahiSound = true;
+
+  services.mpd.extraConfig = ''
+    audio_output {
+      type "alsa"
+      name "My ALSA"
+      device			"hw:0,0"	# optional 
+      format			"44100:16:2"	# optional
+      mixer_type		"hardware"
+      mixer_device	"default"
+      mixer_control	"PCM"
+    }
+  '';
+  services.mpd.user = "rd";
+  systemd.services.mpd.environment = {
+      # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+      XDG_RUNTIME_DIR = "/run/user/1000/"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
+  };
+
+
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
   hardware.keyboard.qmk.enable = true;
   # Use the systemd-boot EFI boot loader.
@@ -124,6 +143,11 @@
      pkgs.gh
 
      pkgs.tlrc
+
+     # pkgs.mpd
+     pkgs.playerctl
+     pkgs.yt-dlp
+     pkgs.ffmpeg-full
 
      pkgs.git
      pkgs.nitch
