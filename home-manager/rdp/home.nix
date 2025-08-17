@@ -46,11 +46,25 @@
   programs.starship = {
     enable = true;
   };
+
+  programs.rmpc = {
+    enable = true;
+  };
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/rd/Music/";
+    # Optional:
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
+    network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
+
   xdg.configFile."starship.toml".source = ../../dotfiles/starship.toml;
+  xdg.configFile."rmpc/config.ron".source = ../../dotfiles/rmpc/config.ron;
   imports = [
 	../../dotfiles/zsh.nix
 	../../dotfiles/ghostty.nix
 ];
+  
 
   home.stateVersion = "25.11";
 

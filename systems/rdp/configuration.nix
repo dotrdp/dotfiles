@@ -30,7 +30,7 @@
      enable = true;
      pulse.enable = true;
    };
-
+ 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
@@ -57,13 +57,31 @@
   	EDITOR = "nvim";
   };
 # NOTE: [INFO] SYSTEM PACKAGES
-  environment.systemPackages = [
+  environment.systemPackages = 
+# let exportingpythonldlibrary = with pkgs; stdenv.mkDerivation rec {
+#     name = "exportingpythonldlibrary";
+#     nativeBuildInputs = [
+# 	pkgs.stdenv.cc.cc
+# ];
+# # 	postInstall = ''
+# #     # export LD_LIBRARY_PATH=$(nix eval --raw nixpkgs.stdenv.cc.cc)/lib:$LD_LIBRARY_PATH
+# #     export LD_LIBRARY_PATH="${ pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]}:$LD_LIBRARY_PATH"
+# # '';
+# 	shellHook = ''
+#     # export LD_LIBRARY_PATH=$(nix eval --raw nixpkgs.stdenv.cc.cc)/lib:$LD_LIBRARY_PATH
+#     export LD_LIBRARY_PATH="${ pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]}:$LD_LIBRARY_PATH"
+# '';
+# };
+# in
+[
      #
      pkgs.vivaldi
      pkgs.vivaldi-ffmpeg-codecs
 
      pkgs.asahi-bless
      pkgs.mesa
+     pkgs.python313Packages.mutagen
+     # exportingpythonldlibrary
 
      pkgs.direnv
      pkgs.rose-pine-cursor
@@ -81,5 +99,5 @@
   services.gnome.gcr-ssh-agent.enable = false;
   #DO NOT CHANGE THIS; PORFAVOR NOOOOO; NO LO MUEVAS; NO LO CAMBIES; NO HAY FORMA EN QUE PUEDA SALIR BIEN
   system.stateVersion = "25.11"; # Did you read the comment?
-  
 }
+

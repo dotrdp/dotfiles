@@ -16,5 +16,6 @@ environment.systemPackages = with pkgs; [
      cava
      nodejs_20
      playerctl
+     imagemagick
 ];
 }
