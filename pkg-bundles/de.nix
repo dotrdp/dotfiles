@@ -22,6 +22,7 @@
      gnomeExtensions.media-controls
      gnomeExtensions.weather-oclock
      gnome-weather
+     gnomeExtensions.burn-my-windows
   ];
 }
 

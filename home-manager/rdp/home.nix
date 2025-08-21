@@ -63,6 +63,7 @@
   imports = [
 	../../dotfiles/zsh.nix
 	../../dotfiles/ghostty.nix
+	../../dotfiles/clock-rs.nix
 ];
   
 

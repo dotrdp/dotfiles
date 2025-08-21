@@ -4,6 +4,7 @@
 	programs.zsh = {
 	  enable = true;
 	  syntaxHighlighting.enable = true;
+	  autosuggestion.enable = true;
 	  initContent = "eval \"$(direnv hook zsh)\" && eval \"$(nix eval --raw nixpkgs.stdenv.cc.cc.lib)\" && export MPD_HOST=$XDG_RUNTIME_DIR/mpd/socket && clear && nitch";
 	  shellAliases = {
 		nvimc = "ghostty -e nvim .";
@@ -13,10 +14,9 @@
 	  zplug = {
 	    enable = true;
 	    plugins = [
-	      { name = "zsh-users/zsh-completions"; } 
-	      { name = "zsh-users/zsh-autosuggestions"; }
+	      { name = "marlonrichert/zsh-autocomplete"; } 
+	      # { name = "zsh-users/zsh-autosuggestions"; }
 	      { name = "chisui/zsh-nix-shell"; }
-	      { name = "zsh-users/zsh-history-substring-search"; }
 	      { name = "MichaelAquilina/zsh-you-should-use"; }
 	      { name = "atuinsh/atuin"; }
 	    ];
@@ -29,4 +29,11 @@
 	  };
 	};
 	programs.command-not-found.enable = true;
+	programs.direnv = {
+	  enable = true;
+	  nix-direnv.enable = true;
+	};
+	programs.atuin = {
+	  enable = true;
+	};
 }
