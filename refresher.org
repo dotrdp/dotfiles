@@ -1,0 +1,59 @@
+this is just a refresher for move advanced features there is
+
+g?
+that's all you need man
+
+
+ok so to begin with say you want to define a task
+
+you just say
+
+* TODO some random task
+since this is nvim u can fold it or unfold it with tab, note this text itself is part of the above TODO task for some reason
+
+
+
+  DEADLINE: <2024-06-30 Sun> you can set a deadline by pressing <Leader>oid
+  note you can tweak the deadline so it says scheduled
+  there is also SCHEDULED: <2024-06-30 Sun> which is similar but not the same as in you tell it org mode to tell u to work on it on that date
+  you can also add tags to any object just do this
+  :tagrandom:
+  you can later search for this tags in the calendar
+  since this is nvim you can use <Leader>ot to add a tag
+
+
+you can also cycle through states, in nvim there is cit to go forward and ciT to go backwards
+
+try doing that with this task
+*   press cit or ciT on me please                                      :idk man:
+  DEADLINE: <2025-08-25 Mon>
+  - jesus
+
+The agenda utility can be opened with <Leader>oa
+there you can focus on specific for today with vd
+
+to move forward in the agenda press f to move forward and b to move backward
+
+
+FOR SCHEDULES GET READY CUZ IT IS KNDA RARE BUT USEFUL
+
+* some recurrent task
+  DEADLINE: <2025-08-29 Fri +1m -2d>
+to make it recurrent you need to set the deadline or schedule then add a + recurrent ie.
+  in this example we tell it to come back to us every month also if you want it to warn you a couple days before just add a -2d
+  the -2d is so it tells you about it 2 days before
+
+  *NOW THE IMPORTANT* , when you mark it as done with cit it will move the time forward and still markup as TODO, however it will keep track of when u marked it done
+
+  if you add a ++ it will not add up multiple times every time you dont do it.
+
+  if you add a .+ it will set the repeat date after you done it e.g
+  for batteries you could set it to .+1m, once you change it it will set the next deadline to one month from the day you marked it as done
+
+
+
+
+
+  
+
+
