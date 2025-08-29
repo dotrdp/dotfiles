@@ -6,7 +6,7 @@
     settings = {
       font-family = "Maple Mono NF";
       font-feature = "liga, calt, dlig, keep-infinite-arrow=true";
-      window-decoration = "false";
+      window-decoration = "true";
       command = "zsh";
       confirm-close-surface = "false";
       theme = "Kanagawa Wave";

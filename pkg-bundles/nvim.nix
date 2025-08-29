@@ -3,6 +3,7 @@
 environment.systemPackages = with pkgs; [
      neovim
      gcc
+     just
      ripgrep
      fd
      wl-clipboard
@@ -14,6 +15,7 @@ environment.systemPackages = with pkgs; [
      luajitPackages.luacheck
      lazygit
      cava
+     ghostscript
      nodejs_20
      playerctl
      imagemagick

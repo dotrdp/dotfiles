@@ -11,6 +11,7 @@
       ../../pkg-bundles/nvim.nix
       ../../pkg-bundles/de.nix
       ../../pkg-bundles/utils.nix
+      ../../pkg-bundles/orgmode.nix
       ./sys-specific
 	
     ];
@@ -77,6 +78,7 @@
      #
      pkgs.vivaldi
      pkgs.vivaldi-ffmpeg-codecs
+     pkgs.typst
 
      pkgs.asahi-bless
      pkgs.mesa

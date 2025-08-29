@@ -17,13 +17,13 @@
 
 
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-dark";
+      package = pkgs.kanagawa-gtk-theme;
+      name = "Kanagawa-B-LB";
     };
 
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.kanagawa-gtk-theme;
+      name = "Kanagawa-B-LB";
     };
 
     #gtk3.extraConfig.Settings = "gtk-application-prefer-dark-theme=1";
@@ -36,9 +36,14 @@
       "org/gnome/desktop/interface" = pkgs.lib.mkForce {
         color-scheme = "prefer-dark";
         cursor-theme = "BreezeX-RosePine-Linux";
+	gtk-theme = "Kanagawa-B-LB";
       };
       "org/gnome/desktop/applications/terminal" = {
         exec = "ghostty";
+      };
+      "org/gnome/desktop/wm/preferences" = {
+	button-layout = ":";
+	theme = "Kanagawa-B-LB";
       };
     };
   };
