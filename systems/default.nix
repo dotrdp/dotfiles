@@ -3,16 +3,17 @@
   self,
   ...
 }: let
-  inherit (inputs) home-manager nixpkgs;
+  inherit (inputs) niri home-manager nixpkgs;
 
   systemNames = [
     {
       name = "rdp";
       arch = "aarch64-linux";
+      extramodules = [ niri.nixosModules.niri ];
     }
 ];
 
-  mkSystem = sysName: sysArch: 
+  mkSystem = extramodules: sysName: sysArch: 
 	let hmc = import ../home-manager/${sysName};
 		in
     nixpkgs.lib.nixosSystem {
@@ -24,10 +25,10 @@
 	modules = [
 	./${sysName}
 	home-manager.nixosModules.home-manager hmc
-	];
+	] ++ extramodules;
     };
 
-  systems = map (sys: {${sys.name} = mkSystem sys.name sys.arch;}) systemNames;  
+  systems = map (sys: {${sys.name} = mkSystem sys.extramodules sys.name sys.arch;}) systemNames;  
 
   nixosystems = nixpkgs.lib.foldr (coming: final: final // coming) {} systems;
 in

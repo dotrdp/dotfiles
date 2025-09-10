@@ -3,7 +3,9 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {inputs, config, lib, pkgs, ... }:
-
+let
+  niri-package = inputs.niri-override.packages.${pkgs.system}.niri;
+in
 {
   imports =
     [ 
@@ -49,7 +51,8 @@
     maple-mono.NF-unhinted
   ];
 
-  
+  programs.firefox.enable = true;
+ 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
 	lua-language-server
@@ -76,6 +79,15 @@
 # in
 [
      #
+     pkgs.mako
+     pkgs.waybar
+     pkgs.fuzzel
+ 
+
+
+
+
+
      pkgs.vivaldi
      pkgs.vivaldi-ffmpeg-codecs
      pkgs.typst
